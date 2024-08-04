@@ -49,6 +49,8 @@ def verify_magic_link(request, uidb64, token):
         user.profile.magic_token = None
         user.profile.save()
         login(request, user)
+        # breakpoint()
+        request.session.set_expiry(10)
         return redirect('home')
     else:
         return HttpResponse('Invalid or expired link')

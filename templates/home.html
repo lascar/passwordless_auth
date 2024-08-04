@@ -1,9 +1,11 @@
 <!-- templates/home.html -->
 {% extends "base.html" %}
+{% load breakpoint %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    {# set_breakpoint #}
     {% if user.is_authenticated %}
         Hi {{ user.username }}!
     {% else %}
