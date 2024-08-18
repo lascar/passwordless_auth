@@ -10,6 +10,7 @@ from django.http import HttpResponse
 from django.utils.crypto import get_random_string
 from django.utils import timezone
 from .models import Profile
+from django.utils.translation import gettext as _
 import pdb
 
 User = get_user_model()
@@ -35,7 +36,7 @@ def send_magic_link(request):
                 'token': token,
             })
             send_mail(mail_subject, message, 'no-reply@example.com', [email])
-            return HttpResponse('A magic link has been sent to your email.')
+            return HttpResponse(_('A magic link has been sent to your email.'))
     return render(request, 'authentication/send_magic_link.html')
 
 def verify_magic_link(request, uidb64, token):

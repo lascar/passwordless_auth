@@ -1,8 +1,9 @@
 <!-- templates/home.html -->
 {% extends "base.html" %}
+{% load i18n %}
 {% load breakpoint %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
     {# set_breakpoint #}

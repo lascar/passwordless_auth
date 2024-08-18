@@ -1,4 +1,5 @@
 <!-- templates/base.html -->
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 
@@ -7,25 +8,34 @@
   {% load static %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css'>
-  <title>{% block title %}Django Auth Mail{% endblock %}</title>
+  <title>{% block title %}{% trans "Django Auth Mail" %}{% endblock %}</title>
 </head>
 
 <body>
   <div class="container">
     <div class="row justify-content-center p-5 bg-body-tertiary rounded-3">
       {% if user.is_authenticated %}
-          Hi {{ user.username }}!
+        {% trans "Hi"%} {{ user.username }}!
           <div class="user_panel">
              <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <input type="submit" value="Logout">
+                <input type="submit" value={% trans "Logout" %}>
              </form>
           </div>
-
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <select name="language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+        <input type="submit" value={% trans "Change Language" %}>
+    </form>
       {% else %}
-          <p>You are not logged in</p>
+      <p>{% trans "You are not logged in" %}</p>
           <div class="user_panel">
-             <a href="/auth/login">login</a>
+            <a href="/auth/login">{% trans "login" %}</a>
           </div>
       {% endif %}
       <div class="col-lg-6 text-center">
