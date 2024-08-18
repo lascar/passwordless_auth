@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 
+admin.site.site_header = "Student Inquiry Application"
+admin.site.site_title = "Student Inquiry Application"
+admin.site.index_title = "Student Inquiry Application Admin"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),

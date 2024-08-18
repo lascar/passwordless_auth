@@ -13,6 +13,21 @@
 <body>
   <div class="container">
     <div class="row justify-content-center p-5 bg-body-tertiary rounded-3">
+      {% if user.is_authenticated %}
+          Hi {{ user.username }}!
+          <div class="user_panel">
+             <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+             </form>
+          </div>
+
+      {% else %}
+          <p>You are not logged in</p>
+          <div class="user_panel">
+             <a href="/auth/login">login</a>
+          </div>
+      {% endif %}
       <div class="col-lg-6 text-center">
         {% block content %}
         {% endblock %}
