@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-18 16:27+0200\n"
+"POT-Creation-Date: 2024-08-24 18:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: authentication/views.py:39
+#: authentication/templates/authentication/send_magic_link.html:6
+#: authentication/templates/authentication/send_magic_link.html:9
+#: authentication/templates/authentication/send_magic_link.html:14
+msgid "Send Magic Link"
+msgstr "Enviar Enlace Mágico"
+
+#: authentication/templates/authentication/send_magic_link.html:12
+msgid "Email"
+msgstr "Correo Electrónico"
+
+#: authentication/views.py:40 functional_tests/test_login.py:29
 msgid "A magic link has been sent to your email."
 msgstr "Un enlace mágico ha sido enviado a tu correo electrónico."
 
@@ -35,15 +45,15 @@ msgstr "Hola"
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:33
+#: templates/base.html:32
 msgid "Change Language"
 msgstr "Cambiar Idioma"
 
-#: templates/base.html:36
+#: templates/base.html:35
 msgid "You are not logged in"
 msgstr "No has iniciado sesión"
 
-#: templates/base.html:38
+#: templates/base.html:37
 msgid "login"
 msgstr "iniciar sesión"
 

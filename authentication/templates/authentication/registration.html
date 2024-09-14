@@ -1,17 +1,18 @@
 {% extends 'authentication/base.html' %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
-    <h2>Register</h2>
+    <h2>{% translate "Register" %}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <div>
-            <strong>Password Strength:</strong>
-            <div id="password-strength">Please enter a password.</div>
+            <strong>{% translate "Password Strength" %}:</strong>
+            <div id="password-strength">{% translate "Please enter a password" %}.</div>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Register</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 8px;">{% translate "Register" %}</button>
     </form>
 </div>
 

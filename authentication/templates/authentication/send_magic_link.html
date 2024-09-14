@@ -1,15 +1,17 @@
+<!-- authentication/templates/authentication/send_magic_link.html -->
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Send Magic Link</title>
+    <title>{% translate "Send Magic Link" %}</title>
 </head>
 <body>
-    <h1>Send Magic Link</h1>
+    <h1>{% trans "Send Magic Link" %}</h1>
     <form method="post">
-    {% csrf_token %}
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-    <button type="submit">Send Magic Link</button>
+        {% csrf_token %}
+        <label for="email">{% trans "Email" %}:</label>
+        <input type="email" name="email" id="email" required>
+        <button type="submit">{% trans "Send Magic Link" %}</button>
     </form>
 </body>
 </html>

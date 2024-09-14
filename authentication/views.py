@@ -18,6 +18,7 @@ User = get_user_model()
 def send_magic_link(request):
     if request.method == 'POST':
         email = request.POST.get('email')
+        breakpoint()
         user = User.objects.filter(email=email).first()
         profile = Profile.objects.get_or_create(user=user)
         if user:

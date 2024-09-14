@@ -1,12 +1,13 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Magic Link Login</title>
+    <title>{% trans "Magic Link Login" %}</title>
 </head>
 <body>
-    <p>Hi {{ user.username }},</p>
-    <p>Click the link below to log in:</p>
-    <a href="http://{{ domain }}{% url 'verify_magic_link' uidb64=uid token=token %}">Login</a>
-    <p>This link will expire in 15 minutes.</p>
+    <p>{% trans "Hi" %} {{ user.username }},</p>
+    <p>{% trans "Click the link below to log in" %}:</p>
+    <a href="http://{{ domain }}{% url 'verify_magic_link' uidb64=uid token=token %}">{% trans "Login" %}</a>
+    <p>{% trans "This link will expire in 15 minutes" %}.</p>
 </body>
 </html>
