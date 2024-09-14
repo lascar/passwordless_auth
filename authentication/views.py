@@ -18,17 +18,16 @@ User = get_user_model()
 def send_magic_link(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        breakpoint()
         user = User.objects.filter(email=email).first()
-        profile = Profile.objects.get_or_create(user=user)
         if user:
+            profile = Profile.objects.get_or_create(user=user)
             token = get_random_string(32)
             user.profile.magic_token = token
             user.profile.token_created_at = timezone.now()
             user.profile.save()
 
             current_site = get_current_site(request)
-            mail_subject = 'Your magic login link'
+            mail_subject = _('Your magic login link')
             # breakpoint()
             message = render_to_string('authentication/magic_link_email.html', {
                 'user': user.username,

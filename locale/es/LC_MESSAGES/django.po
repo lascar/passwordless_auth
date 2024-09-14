@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-24 18:41+0200\n"
+"POT-Creation-Date: 2024-09-14 10:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
+
+#: authentication/templates/authentication/login.html:9
+#: authentication/templates/authentication/login.html:13
+msgid "Log In"
+msgstr ""
+
+#: authentication/templates/authentication/login.html:17
+msgid "Do you need an account"
+msgstr ""
+
+#: authentication/templates/authentication/login.html:17
+msgid "Sign Up Now"
+msgstr ""
+
+#: authentication/templates/authentication/logout.html:11
+#, fuzzy
+#| msgid "You are not logged in"
+msgid "You have been logged out"
+msgstr "No has iniciado sesión"
+
+#: authentication/templates/authentication/logout.html:14
+msgid ""
+"Thank you for using our service. If you'd like to continue, please log in "
+"again"
+msgstr ""
+
+#: authentication/templates/authentication/logout.html:18
+msgid "Log In Again"
+msgstr ""
+
+#: authentication/templates/authentication/magic_link_email.html:5
+#, fuzzy
+#| msgid "Send Magic Link"
+msgid "Magic Link Login"
+msgstr "Enviar Enlace Mágico"
+
+#: authentication/templates/authentication/magic_link_email.html:8
+#: templates/base.html:18
+msgid "Hi"
+msgstr "Hola"
+
+#: authentication/templates/authentication/magic_link_email.html:9
+msgid "Click the link below to log in"
+msgstr ""
+
+#: authentication/templates/authentication/magic_link_email.html:10
+#, fuzzy
+#| msgid "login"
+msgid "Login"
+msgstr "iniciar sesión"
+
+#: authentication/templates/authentication/magic_link_email.html:11
+msgid "This link will expire in 15 minutes"
+msgstr ""
+
+#: authentication/templates/authentication/registration.html:7
+#: authentication/templates/authentication/registration.html:15
+msgid "Register"
+msgstr ""
+
+#: authentication/templates/authentication/registration.html:12
+msgid "Password Strength"
+msgstr ""
+
+#: authentication/templates/authentication/registration.html:13
+msgid "Please enter a password"
+msgstr ""
 
 #: authentication/templates/authentication/send_magic_link.html:6
 #: authentication/templates/authentication/send_magic_link.html:9
@@ -29,17 +96,18 @@ msgstr "Enviar Enlace Mágico"
 msgid "Email"
 msgstr "Correo Electrónico"
 
-#: authentication/views.py:40 functional_tests/test_login.py:29
+#: authentication/views.py:30
+msgid "Your magic login link"
+msgstr ""
+
+#: authentication/views.py:39 functional_tests/test_login.py:9
+#: functional_tests/test_login.py:20
 msgid "A magic link has been sent to your email."
 msgstr "Un enlace mágico ha sido enviado a tu correo electrónico."
 
 #: templates/base.html:11
 msgid "Django Auth Mail"
 msgstr "Django Auth Mail"
-
-#: templates/base.html:18
-msgid "Hi"
-msgstr "Hola"
 
 #: templates/base.html:22
 msgid "Logout"
