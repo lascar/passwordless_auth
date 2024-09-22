@@ -19,7 +19,7 @@
           <div class="user_panel">
              <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <input type="submit" value={% trans "Logout" %}>
+                <input type="submit" name="logout" value={% trans "Logout" %}>
              </form>
           </div>
     <form action="{% url 'set_language' %}" method="post">

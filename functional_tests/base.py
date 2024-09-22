@@ -46,7 +46,8 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self):
         super().setUp()
-        test_user = CustomUser.objects.create(username=TEST_NAME, email=TEST_EMAIL, password=TEST_PASSWORD)
+        test_user = CustomUser.objects.create(username=TEST_NAME, email=TEST_EMAIL)
+        test_user.set_password(TEST_PASSWORD)
         test_user.save()
 
     # def tearDown(self):
