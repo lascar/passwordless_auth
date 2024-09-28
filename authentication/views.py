@@ -11,6 +11,8 @@ from django.utils.crypto import get_random_string
 from django.utils import timezone
 from .models import Profile
 from django.utils.translation import gettext as _
+from .forms import RegistrationForm
+from django.contrib import messages
 import pdb
 
 User = get_user_model()
@@ -55,12 +57,6 @@ def verify_magic_link(request, uidb64, token):
         return redirect('home')
     else:
         return HttpResponse('Invalid or expired link')
-
-from django.shortcuts import render, redirect
-from .forms import RegistrationForm
-from django.contrib import messages
-
-
 
 def registration(request):
     if request.method == 'POST':

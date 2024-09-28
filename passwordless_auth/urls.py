@@ -19,9 +19,9 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf.urls.i18n import i18n_patterns
 
-admin.site.site_header = "Student Inquiry Application"
-admin.site.site_title = "Student Inquiry Application"
-admin.site.index_title = "Student Inquiry Application Admin"
+admin.site.site_header = "passwordless_auth"
+admin.site.site_title = "passwordless_auth"
+admin.site.index_title = "passwordless_auth Admin"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

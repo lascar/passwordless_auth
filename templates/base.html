@@ -6,14 +6,12 @@
 <head>
   <meta charset="utf-8">
   {% load static %}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css'>
   <title>{% block title %}{% trans "Django Auth Mail" %}{% endblock %}</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="row justify-content-center p-5 bg-body-tertiary rounded-3">
+    <div class="row">
       {% if user.is_authenticated %}
         {% trans "Hi"%} {{ user.username }}!
           <div class="user_panel">
@@ -35,6 +33,8 @@
       <p>{% trans "You are not logged in" %}</p>
           <div class="user_panel">
             <a href="/auth/login">{% trans "login" %}</a>
+            <br>
+            <small>{% trans "Do you need an account" %}?<a href="{%  url 'registration' %}">{% trans "Sign Up Now" %}</a></small></div>
           </div>
       {% endif %}
       <div class="col-lg-6 text-center">
