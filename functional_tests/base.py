@@ -22,8 +22,6 @@ SUBJECT = 'Enlace de acceso a afiliacion'
 
 
 class FunctionalTest(StaticLiveServerTestCase):
-
-
     def wait_for(self, fn):
         start_time = time.time()
         while True:
@@ -38,6 +36,9 @@ class FunctionalTest(StaticLiveServerTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.browser = webdriver.Firefox()
+        cls.test_user = CustomUser.objects.create(username=TEST_NAME, email=TEST_EMAIL)
+        cls.test_user.set_password(TEST_PASSWORD)
+        cls.test_user.save()
 
     @classmethod
     def tearDownClass(cls):
@@ -46,9 +47,6 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     def setUp(self):
         super().setUp()
-        test_user = CustomUser.objects.create(username=TEST_NAME, email=TEST_EMAIL)
-        test_user.set_password(TEST_PASSWORD)
-        test_user.save()
 
     # def tearDown(self):
         # self.browser.quit()

@@ -52,7 +52,6 @@ def verify_magic_link(request, uidb64, token):
         user.profile.magic_token = None
         user.profile.save()
         login(request, user)
-        # breakpoint()
         request.session.set_expiry(10)
         return redirect('home')
     else:
@@ -60,11 +59,9 @@ def verify_magic_link(request, uidb64, token):
 
 def registration(request):
     if request.method == 'POST':
-        # Create a form that has request.POST
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            # Set the user's password securely
             username = form.cleaned_data['username']
             password1 = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2']
@@ -76,7 +73,6 @@ def registration(request):
                 messages.success(request, f'Your Account has been created {username} ! Proceed to log in')
                 return redirect('login')  # Redirect to the login page
             else:
-                # Handle password mismatch error here
                 form.add_error('password2', 'Passwords entered do not match')
     else:
         form = RegistrationForm()

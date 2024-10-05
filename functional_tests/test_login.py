@@ -39,7 +39,7 @@ class LoginTest(FunctionalTest):
         self.assertIn("Hi " + TEST_NAME, self.browser.find_element(By.TAG_NAME, 'body').text)
 
         self.browser.find_element(By.NAME, "logout").click()
-        self.assertIn(_('You are not logged in'), self.browser.find_element(By.TAG_NAME, 'body').text)
+        self.assertIn(_('Do you need an account'), self.browser.find_element(By.TAG_NAME, 'body').text)
 
         self.browser.find_element(By.LINK_TEXT, _('login')).click()
         self.browser.find_element(By.NAME, 'username').send_keys(TEST_NAME)

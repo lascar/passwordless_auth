@@ -5,12 +5,14 @@ __pycache__
 db.sqlite3
 *.py[cod]
 *$py.class
-.Python build/
+.Python
+build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
+*.egg
 lib/
 lib64/
 parts/
@@ -20,7 +22,6 @@ wheels/
 *.whl
 *.egg-info/
 .installed.cfg
-*.egg
 *.manifest
 *.spec
 pip-log.txt
