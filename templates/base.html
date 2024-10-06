@@ -13,75 +13,85 @@
     {% trans "Django Auth Mail" %}
 {% endif %}
   {% endblock %}</title>
+  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand mr-auto" href="#">
 {% if title %}
-            {{ title }}
+        {{ title }}
 {% else %}
-            {% trans "Django Auth Mail" %}
+        {% trans "Django Auth Mail" %}
 {% endif %}
-          </a>
-        </div>
-        <div id="navbarSupportedContent">
-          <ul class="nav navbar-nav">
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 {% if user.is_authenticated %}
-            <li class="nav-item" style="margin-right: 50px;">
-              {% trans "Hi"%} {{ user.username }}!
-            </li>
-            <li class="nav-item" style="margin-right: 50px;">
-              <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %}</a>
-            </li>
-            <li class="nav-item" style="margin-right: 50px;">
-              <form method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <input type="submit" name="logout" value={% trans "Logout" %}>
-              </form>
-            </li>
-            <li class="nav-item" style="margin-right: 50px;">
-              <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}" />
-                <select name="language">
-                  <option value="en">{% trans "English" %}</option>
-                  <option value="es">{% trans "Spanish" %}</option>
-                </select>
-                <input type="submit" value={% trans "Change Language" %}>
-              </form>
-            </li>
-{% endif %}
-          </ul>
-{% if not user.is_authenticated %}
-          <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item" style="margin-right: 50px;">
-              <a class="nav-link" href="/auth/login">{% trans "login" %}</a>
-            </li>
-            <li class="nav-item" style="margin-right: 50px;">
-              <small>{% trans "Do you need an account" %}?<a class="nav-link" href="{%  url 'registration' %}">{% trans "Sign Up Now" %}</a></small></div>
-            </li>
-          </ul>
-{% endif %}
-        </div>
+      <div class="navbar-nav mx-auto">
+        <form method="get" action="{% url 'home' %}">
+          {% csrf_token %}
+          <input class="btn btn-outline-warning" type="submit" name="logout" value={% trans "Home" %}>
+        </form>
+        &nbsp;&nbsp;
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <input class="btn btn-outline-info" type="submit" name="logout" value={% trans "Logout" %}>
+        </form>
+        &nbsp;&nbsp;
+        <form class="form-inline" method="post" action="{% url 'set_language' %}">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}" />
+          <select class="form-select" name="language">
+            <option value="en">{% trans "English" %}</option>
+            <option value="es">{% trans "Spanish" %}</option>
+          </select>
+          <input type="submit" value={% trans "Change Language" %}>
+        </form>
       </div>
-    </nav>
-  </div>
+      <div "navbar-nav mx-auto">
+        <span class="navbar-text">
+          {% trans "Hi"%} {{ user.username }}!
+        </span>
+      </div>
+{% endif %}
+{% if not user.is_authenticated %}
+      <div class="navbar-nav mx-auto">
+        <form method="get" action="{% url 'login' %}">
+          {% csrf_token %}
+          <input class="btn btn-outline-warning" type="submit" name="logout" value={% trans "login" %}>
+        </form>
+      </div>
+      <div class="navbar-nav mx-auto">
+        <span class="navbar-text">
+          <small>
+            {% trans "Do you need an account" %}?
+          </small>
+          <form method="get" action="{% url 'registration' %}">
+            {% csrf_token %}
+            <input class="btn btn-outline-info" type="submit" name="registation" value={% trans "Sign Up Now" %}>
+          </form>
+        </span>
+      </div>
+{% endif %}
+    </div>
+  </nav>
+  <br>
 
   <div class="container">
-    <div class="col-lg-6 text-center">
       {% block content %}{% endblock %}
-    </div>
   </div>
-  <footer class="footer">
-    <div class="container">
+  <br>
+  <footer class="text-center bg-body-tertiary text-muted";>
      <span>
        {% trans "Powered by" %} Pascal Carrié
      </span>
-    </div>
   </footer>
 </body>
 </html>
